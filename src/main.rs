@@ -1,18 +1,17 @@
 
 use std::path::{self};
 
-use lib::image_utils::save_images;
-use pdfium::set_library_location;
-
-const LIBRARY_LOCATION: &str = "./pdfium-mac-arm64/lib/";
+use lib::{image_utils::save_images, pdf::create_pdfium};
 
 fn main() {
-    set_library_location(LIBRARY_LOCATION);
 
     let path_old = path::Path::new("./samples/sample_3.pdf");
     let path_new = path::Path::new("./samples/sample_4.pdf");
 
-    let (old_document, new_document) = match lib::pdf::load(path_old, path_new) {
+    let pdfiumn = create_pdfium().unwrap();
+
+
+    let (old_document, new_document) = match lib::pdf::load_pdf_documents(&pdfiumn, path_old, path_new) {
         Ok((old, new)) => (old, new),
         Err(e) => {
             eprintln!("Error loading PDF files: {}", e);
