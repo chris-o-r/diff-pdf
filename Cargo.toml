@@ -8,6 +8,7 @@ image = "0.25.6"
 diff_img = { git = "https://github.com/chris-o-r/diff-img" }
 anyhow = "1.0.99"
 pdfium-render = "0.8.35"
+clap = { version = "4.5", features = ["derive"] }
 
 
 [lib]
