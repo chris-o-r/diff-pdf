@@ -68,7 +68,7 @@ pub fn diff_images(
                 let mut old = old.clone();
                 let mut new = new.clone();
 
-                let diff_ratio = diff_img::calculate_diff_ratio(&old, &new);
+                let diff_ratio = diff_img::numerical::calculate_diff_ratio(&old, &new);
                 if diff_ratio > 0.0 {
                     let diff_image = lcs_diff(&mut old, &mut new, sensitivity)?;
                     diff.push(diff_image);

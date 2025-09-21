@@ -10,7 +10,7 @@ use lib::{image_utils::save_images, pdf::create_pdfium};
 #[command(version = "0.1.0")]
 struct Args {
     /// Path to the old PDF file
-    #[arg(short = 'o', long = "old", help = "Path to the old PDF file")]
+    #[arg(short = 'o', long = "old", help = "Path to the old PDF file",)]
     old_pdf: String,
 
     /// Path to the new PDF file
