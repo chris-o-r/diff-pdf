@@ -129,7 +129,9 @@ fn main() {
         println!("Saving images to '{}'...", args.output_dir);
     }
 
-    match save_images(diff_images, &args.output_dir) {
+    let pdf_title = path_old.file_stem().and_then(|s| s.to_str()).unwrap_or("output");
+
+    match save_images(diff_images, pdf_title, &args.output_dir) {
         Ok(()) => {
             if args.verbose {
                 println!("Successfully saved all diff images!");
